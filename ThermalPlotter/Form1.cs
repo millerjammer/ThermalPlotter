@@ -22,6 +22,9 @@ namespace ThermalPlotter
             InitializeComponent();
             SetDefaultFileName();
             comboBox_Port.SelectedIndex = 0;
+            formsPlot1.Plot.XAxis.Label("Elapsed Time [s]");
+            formsPlot1.Plot.YAxis.Label("Temperature \u00b0C");
+
         }
         private void SetDefaultFileName()
         {

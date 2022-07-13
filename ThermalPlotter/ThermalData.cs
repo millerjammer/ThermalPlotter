@@ -13,7 +13,7 @@ namespace ThermalPlotter
 {
     public partial class ThermalData
     {
-        const int TEMP_ARRAY_SIZE = 1000;
+        const int TEMP_ARRAY_SIZE = 10000;
         private double[] channel0 = new double[TEMP_ARRAY_SIZE];
         private double[] channel1 = new double[TEMP_ARRAY_SIZE];
         private double[] channel2 = new double[TEMP_ARRAY_SIZE];
@@ -37,10 +37,11 @@ namespace ThermalPlotter
             if (index == channel0.Length) 
             {
                 Array.Resize(ref channel0, index + TEMP_ARRAY_SIZE);
-                Array.Resize(ref channel0, index + TEMP_ARRAY_SIZE);
-                Array.Resize(ref channel0, index + TEMP_ARRAY_SIZE);
-                Array.Resize(ref channel0, index + TEMP_ARRAY_SIZE);
-                Console.WriteLine(string.Format("Resize! index:{0} lrngth:{1}", index, channel0.Length));
+                Array.Resize(ref channel1, index + TEMP_ARRAY_SIZE);
+                Array.Resize(ref channel2, index + TEMP_ARRAY_SIZE);
+                Array.Resize(ref channel3, index + TEMP_ARRAY_SIZE);
+                Array.Resize(ref dateTime, index + TEMP_ARRAY_SIZE);
+                Console.WriteLine(string.Format("Resize! index:{0} length:{1}", index, channel0.Length));
             }
             channel0[index] = ch1;
             channel1[index] = ch2;
