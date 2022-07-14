@@ -60,6 +60,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.check_startStop = new System.Windows.Forms.CheckBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label_batteryStatus = new System.Windows.Forms.Label();
+            this.label_recordingMode = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -68,6 +73,7 @@
             this.groupBox5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // formsPlot1
@@ -85,6 +91,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.Controls.Add(this.groupBox6);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
@@ -429,6 +436,53 @@
             this.check_startStop.UseVisualStyleBackColor = true;
             this.check_startStop.CheckedChanged += new System.EventHandler(this.check_startStop_CheckedChanged);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label_recordingMode);
+            this.groupBox6.Controls.Add(this.label_batteryStatus);
+            this.groupBox6.Controls.Add(this.label3);
+            this.groupBox6.Controls.Add(this.label2);
+            this.groupBox6.Location = new System.Drawing.Point(599, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(201, 81);
+            this.groupBox6.TabIndex = 14;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Meter Status";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Battery Status:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Recording Mode:";
+            // 
+            // label_batteryStatus
+            // 
+            this.label_batteryStatus.Location = new System.Drawing.Point(116, 24);
+            this.label_batteryStatus.Name = "label_batteryStatus";
+            this.label_batteryStatus.Size = new System.Drawing.Size(76, 13);
+            this.label_batteryStatus.TabIndex = 2;
+            this.label_batteryStatus.Text = "N/A";
+            // 
+            // label_recordingMode
+            // 
+            this.label_recordingMode.Location = new System.Drawing.Point(116, 51);
+            this.label_recordingMode.Name = "label_recordingMode";
+            this.label_recordingMode.Size = new System.Drawing.Size(76, 13);
+            this.label_recordingMode.TabIndex = 3;
+            this.label_recordingMode.Text = "N/A";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,6 +510,8 @@
             this.panel4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,6 +550,11 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox check_startStop;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label_recordingMode;
+        private System.Windows.Forms.Label label_batteryStatus;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 
 

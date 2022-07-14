@@ -115,6 +115,7 @@ namespace ThermalPlotter
                         if (t4 > 3000)
                             t4 = 0;
                         Console.WriteLine(count);
+                        thermalData.SetToolState(bBuffer[0]);
                         thermalData.AppendData(t1, t2, t3, t4);
                         foreach (var observer in observers)
                             observer.OnNext(11.2);

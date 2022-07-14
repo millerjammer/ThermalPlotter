@@ -72,6 +72,15 @@ namespace ThermalPlotter
                 button_minT2.Text = thermalData.ch1_min.ToString("0.##\u00b0C");
                 button_minT3.Text = thermalData.ch2_min.ToString("0.##\u00b0C");
                 button_minT4.Text = thermalData.ch3_min.ToString("0.##\u00b0C");
+                if (thermalData.isRecording == true)
+                    label_recordingMode.Text = "Recording";
+                else
+                    label_recordingMode.Text = "Idle";
+                if (thermalData.isBatteryLow == true)
+                    label_batteryStatus.Text = "Low Battery";
+                else
+                    label_batteryStatus.Text = "Ok";
+
                 label_Elapsed.Text = thermalData.GetCurrentElapsedTime();
             }));
             
