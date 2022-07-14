@@ -25,6 +25,8 @@ namespace ThermalPlotter
         private double[] lastTemperature = new double[4];
         private DateTime[] dateTime = new DateTime[TEMP_ARRAY_SIZE];
         private bool isPaused = false;
+        public bool isRecording = false;
+        public bool isBatteryLow = false;
         int index;
         double min;
         double max;
@@ -76,6 +78,19 @@ namespace ThermalPlotter
                 ch3_min = ch4;
 
             index++;
+        }
+
+        public void SetToolState(byte state)
+        {
+            if((state & 0x01) == 0x01)
+                isRecording = true;
+            else
+                isRecording = false;
+
+            if ((state & 0x40) == 0x40)
+                isBatteryLow = true;
+            else
+                isBatteryLow = false;
         }
 
         public double[] GetChannelData(int channel)
