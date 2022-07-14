@@ -98,7 +98,6 @@ namespace ThermalPlotter
         {
             Console.WriteLine("Port Change");
             Program.SetSerialPort();             
-   
         }
 
         private void OnButtonReset(object sender, EventArgs e)
@@ -177,6 +176,21 @@ namespace ThermalPlotter
         private void button_minT4_Click(object sender, EventArgs e)
         {
             thermalData.ch3_min = 0;
+        }
+
+        private void check_startStop_CheckedChanged(object sender, EventArgs e)
+        {
+            thermalData.SetPaused(check_startStop.Checked);
+            if (check_startStop.Checked)
+            {
+                Console.WriteLine("Now Paused - checked");
+                check_startStop.Text = "Play";
+            }
+            else
+            {
+                check_startStop.Text = "Pause";
+                Console.WriteLine("Now Running");
+            }
         }
     }
 }

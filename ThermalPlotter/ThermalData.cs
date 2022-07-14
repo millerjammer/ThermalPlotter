@@ -24,6 +24,7 @@ namespace ThermalPlotter
         public double ch3_min, ch3_max;
         private double[] lastTemperature = new double[4];
         private DateTime[] dateTime = new DateTime[TEMP_ARRAY_SIZE];
+        private bool isPaused = false;
         int index;
         double min;
         double max;
@@ -34,8 +35,11 @@ namespace ThermalPlotter
 
         public void AppendData(double ch1, double ch2, double ch3, double ch4)
         {
+            if (isPaused)
+                return;
             if (index == channel0.Length) 
             {
+                // todo this doesn't work Resize returns a different reference
                 Array.Resize(ref channel0, index + TEMP_ARRAY_SIZE);
                 Array.Resize(ref channel1, index + TEMP_ARRAY_SIZE);
                 Array.Resize(ref channel2, index + TEMP_ARRAY_SIZE);
@@ -53,22 +57,22 @@ namespace ThermalPlotter
             lastTemperature[1] = ch2;
             lastTemperature[2] = ch3;
             lastTemperature[3] = ch4;
-            if(ch1 > ch0_max)
+            if(ch1 > ch0_max || index == 0)
                 ch0_max = ch1;
-            if (ch2 > ch1_max)
+            if (ch2 > ch1_max || index == 0)
                 ch1_max = ch2;
-            if (ch3 > ch2_max)
+            if (ch3 > ch2_max || index == 0)
                 ch2_max = ch3;
-            if (ch4 > ch3_max)
+            if (ch4 > ch3_max || index == 0)
                 ch3_max = ch4;
 
-            if (ch1 < ch0_min)
+            if (ch1 < ch0_min || index == 0)
                 ch0_min = ch1;
-            if (ch2 < ch1_min)
+            if (ch2 < ch1_min || index == 0)
                 ch1_min = ch2;
-            if (ch3 < ch2_min)
+            if (ch3 < ch2_min || index == 0)
                 ch2_min = ch3;
-            if (ch4 < ch3_min)
+            if (ch4 < ch3_min || index == 0)
                 ch3_min = ch4;
 
             index++;
@@ -115,7 +119,7 @@ namespace ThermalPlotter
         public void ResetAllData()
         {
             index = 0;
-            for(int i = 0; i < channel0.Length; i++)
+            for (int i = 0; i < channel0.Length; i++)
             {
                 channel0[i] = 0;
                 channel1[i] = 0;
@@ -126,8 +130,6 @@ namespace ThermalPlotter
                 ch2_min = 0; ch2_max = 0;
                 ch3_min = 0; ch3_max = 0;
             }
-                
-            
         }
         public double GetDataMax()
         {
@@ -152,6 +154,10 @@ namespace ThermalPlotter
                 minimum = channel3.Min();
             return minimum;
 
+        }
+        public void SetPaused(bool state)
+        {
+            isPaused = state;
         }
     }      
 }
